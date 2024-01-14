@@ -1,0 +1,2 @@
+//Comienza script de JavaScript
+
