@@ -58,20 +58,16 @@ function main() {
     }
     if (montoCarrito <= 150) {
         let res = prompt("¿Desea ver alguna de nuestras alfombras mágicas?\n1- Sí, deseo verlas.\n2- No, muchas gracias.")
-        switch (res) {
-            case "1":
-                let opcionAlfombras = prompt("Ingrese la opción que guste añadir a su carrito:\n Su monto actual es de $ "+ montoCarrito +"\n 1- Alfombra oriental\n 2- Alfombra persa\n 3- Alfombra marroquí\n 0- SALIR");
-                while (opcionAlfombras != "0") {
-                    montoCarrito = acumularAlfombras(opcionAlfombras, montoCarrito)
-                    opcionAlfombras = prompt("Ingrese la opción que guste añadir a su carrito:\n Su monto actual es de $ "+ montoCarrito +"\n 1- Alfombra oriental\n 2- Alfombra persa\n 3- Alfombra marroquí\n 0- SALIR");
-                }
-                break;
-            case "2":
-                break;
-            default:
-                alert("Esa opción no está contemplada.");
-                break;
+        while (res != "1" && res != "2") {
+            alert("Esa opción no está contemplada.");
+            res = prompt("¿Desea ver alguna de nuestras alfombras mágicas?\n1- Sí, deseo verlas.\n2- No, muchas gracias.")
         }
+        if (res == "1"){
+            let opcionAlfombras = prompt("Ingrese la opción que guste añadir a su carrito:\n Su monto actual es de $ "+ montoCarrito +"\n 1- Alfombra oriental\n 2- Alfombra persa\n 3- Alfombra marroquí\n 0- SALIR");
+            while (opcionAlfombras != "0") {
+                montoCarrito = acumularAlfombras(opcionAlfombras, montoCarrito)
+                opcionAlfombras = prompt("Ingrese la opción que guste añadir a su carrito:\n Su monto actual es de $ "+ montoCarrito +"\n 1- Alfombra oriental\n 2- Alfombra persa\n 3- Alfombra marroquí\n 0- SALIR");
+        }}
     }
     saludarYMostrarCarrito(montoCarrito)
 }
