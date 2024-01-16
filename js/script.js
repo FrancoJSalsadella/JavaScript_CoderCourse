@@ -1,6 +1,6 @@
-//Simulador de un carrito de e-commerce... PreEntrega 1
+//Simulador de un carrito de e-commerce... PreEntrega 1 - Salsadella Franco José
 
-
+// Las 2 siguientes funciones sólo acumulan montos y los devuelven.
 function acumularAlfombras(op, monto) {
     switch (op) {
         case "1":
@@ -41,13 +41,13 @@ function acumularDelicias(op, monto) {
     return monto
 }
 
-
+// función que sólo tiene la intención de no repetir código.
 function saludarYMostrarCarrito(monto) {
     alert("El total acumulado en su carrito fue de: $ " + monto)
     alert("¡Muchas gracias y vuelva pronto!\n¡Sultan's Delights!\nA dream to be remembered...")
 }
 
-
+// función del script principal que hace llamado al resto de funciones para mayor prolijidad y compactación de código.
 function main() {
     alert("¡Bienvenido a Sultan's Delights!")
     let montoCarrito = 0
@@ -56,7 +56,6 @@ function main() {
         montoCarrito = acumularDelicias(opcionDelicias, montoCarrito)
         opcionDelicias = prompt("Ingrese la opción que guste añadir a su carrito:\n Su monto actual es de $ "+ montoCarrito +"\n 1- Delicia de Chocolate\n 2- Delicia de Pistachos\n 3- Delicia de Granada\n 4- Delicia de Miel\n 0- SALIR");
     }
-    alert("El total acumulado en su carrito es de: $ " + montoCarrito)
     if (montoCarrito <= 150) {
         let res = prompt("¿Desea ver alguna de nuestras alfombras mágicas?\n1- Sí, deseo verlas.\n2- No, muchas gracias.")
         switch (res) {
@@ -77,6 +76,7 @@ function main() {
     saludarYMostrarCarrito(montoCarrito)
 }
 
-
+// una sola llamada a la función principal en el script global.
 main()
 
+// es un simulador sencillo e interactivo que tiene la finalidad de cumplir con la PreEntrega1 con las herramientas disponibles hasta ahora.
