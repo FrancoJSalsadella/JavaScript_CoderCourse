@@ -42,6 +42,12 @@ function acumularDelicias(op, monto) {
 }
 
 
+function saludarYMostrarCarrito(monto) {
+    alert("El total acumulado en su carrito fue de: $ " + monto)
+    alert("¡Muchas gracias y vuelva pronto!\n¡Sultan's Delights!\nA dream to be remembered...")
+}
+
+
 function main() {
     alert("¡Bienvenido a Sultan's Delights!")
     let montoCarrito = 0
@@ -53,17 +59,24 @@ function main() {
     alert("El total acumulado en su carrito es de: $ " + montoCarrito)
     if (montoCarrito <= 150) {
         let res = prompt("¿Desea ver alguna de nuestras alfombras mágicas?\n1- Sí, deseo verlas.\n2- No, muchas gracias.")
-        if (res == "1") {
-            let opcionAlfombras = prompt("Ingrese la opción que guste añadir a su carrito:\n Su monto actual es de $ "+ montoCarrito +"\n 1- Alfombra oriental\n 2- Alfombra persa\n 3- Alfombra marroquí\n 0- SALIR");
-            while (opcionAlfombras != "0") {
-                montoCarrito = acumularAlfombras(opcionAlfombras, montoCarrito)
-                opcionAlfombras = prompt("Ingrese la opción que guste añadir a su carrito:\n Su monto actual es de $ "+ montoCarrito +"\n 1- Alfombra oriental\n 2- Alfombra persa\n 3- Alfombra marroquí\n 0- SALIR");
-            }}else{
-            alert("El total acumulado en su carrito fue de: $ " + montoCarrito)
-            alert("¡Muchas gracias y vuelva pronto!\n¡Sultan's Delights!\nA dream to be remembered...")
+        switch (res) {
+            case "1":
+                let opcionAlfombras = prompt("Ingrese la opción que guste añadir a su carrito:\n Su monto actual es de $ "+ montoCarrito +"\n 1- Alfombra oriental\n 2- Alfombra persa\n 3- Alfombra marroquí\n 0- SALIR");
+                while (opcionAlfombras != "0") {
+                    montoCarrito = acumularAlfombras(opcionAlfombras, montoCarrito)
+                    opcionAlfombras = prompt("Ingrese la opción que guste añadir a su carrito:\n Su monto actual es de $ "+ montoCarrito +"\n 1- Alfombra oriental\n 2- Alfombra persa\n 3- Alfombra marroquí\n 0- SALIR");
+                }
+                break;
+            case "2":
+                break;
+            default:
+                alert("Esa opción no está contemplada.");
+                break;
         }
     }
+    saludarYMostrarCarrito(montoCarrito)
 }
 
 
 main()
+
