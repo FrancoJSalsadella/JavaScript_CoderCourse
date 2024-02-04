@@ -3,7 +3,7 @@ function darBienvenida() {
     console.log("¡Bienvenido a Sultan's Delights!")
 }
 
-
+// Array de productos
 const productos = [
     { id: 1, descripcion: "Roll de Chocolate y Coco", pistacho: false, precio: 30 },
     { id: 2, descripcion: "Roll de Pistacho y Coco", pistacho: true, precio: 30 },
@@ -17,11 +17,17 @@ const productos = [
     { id: 10, descripcion: "Caja de lujo Delicias Premium", pistacho: true, precio: 200 },
 ]
 
+function listarCatalogo() {
+    let listado = ""
+    productos.forEach(prod => listado += ("#" + prod.id + " - " + prod.descripcion + " - $" + prod.precio + "\n"))
+    return listado
+}
 
+
+// Clase Carrito
 class Carrito {
     constructor() {
         this.productos = []
-        this.impuestoPais = 1.3
         this.totalPagar = 0
     }
     agregarProductoAlCarrito(idPedido) {
@@ -33,8 +39,10 @@ class Carrito {
             console.log("No se encontró un producto con un id: " + idPedido)
         }
     }
-    listarCompra() {
-        this.productos.forEach(item => alert(item.id + " -- " + item.descripcion + " -- $" + item.precio))
+    listarCarrito() {
+        let listado = ""
+        this.productos.forEach(item => listado += "#" + item.id + " - " + item.descripcion + " - $" + item.precio + "\n")
+        return listado
     }
     sumarProductos() {
         this.productos.forEach(item => {this.totalPagar += item.precio})
@@ -47,38 +55,30 @@ class Carrito {
 }
 
 
-function listarCatalogo() {
-    let listado = ""
-    productos.forEach(prod => listado += ("#" + prod.id + " -- " + prod.descripcion + " -- $" + prod.precio + "\n"))
-    return listado
-}
-
-
 function main() {
     // creación del carrito
     const carrito = new Carrito();
 
-    // creación del menú de Catálogo
-    let productoAgregadoCarrito = -1
-    while (productoAgregadoCarrito != 0) {
-        productoAgregadoCarrito = parseInt(prompt("\t\t\t\t\t\t¡Bienvenido a Sultan's Delights!\t\t\t\t\t\t\nSeleccione lo que desee agregar al Carrito:\nPresione '0' para SALIR.\n\n" + listarCatalogo()))
-        if (productoAgregadoCarrito == 0){
+    // creación del menú de opciones de Catálogo
+    let productoSeleccionado = -1;
+    while (productoSeleccionado != 0) {
+        productoSeleccionado = parseInt(prompt("\t\t\t\t\t\t\t\t¡Bienvenido a Sultan's Delights!\t\t\t\t\t\t\t\t\nSeleccione lo que desee agregar al Carrito:\nPresione '0' para SALIR.\n" + listarCatalogo()))
+        if (productoSeleccionado == 0){
             break;
         }
-        if (productoAgregadoCarrito == 33){
-            carrito.listarCompra()
-        }
-        carrito.agregarProductoAlCarrito(productoAgregadoCarrito);
+        carrito.agregarProductoAlCarrito(productoSeleccionado);
+        "Listado del Carrito:\n" + carrito.listarCarrito();
     }
 
     // informe de total a pagar
+    let listadoCarrito = carrito.listarCarrito();
     let valorPagar = carrito.sumarProductos();
     let impuestos = carrito.calcularImpuestos();
     let valorFinal = valorPagar + impuestos;
     if (valorPagar < 100) {
-        alert("Como su compra fue menor a $100, está exenta de impuestos\n" + "Total a pagar: $" + valorPagar);
+        alert("\t\t\t\t\t\t\t\tDetalle de compra:\t\t\t\t\t\t\t\t\n" + listadoCarrito + "\nComo su compra fue menor a $100, está exenta de impuestos.\n" + "\t\tTotal a pagar: $" + valorPagar);
     }else{
-        alert("Total productos: $" + valorPagar + "\nTotal impuestos: $" + impuestos + "\nTotal a pagar: $" + valorFinal);
+        alert("\t\t\t\t\t\t\t\tDetalle de compra:\t\t\t\t\t\t\t\t\n" + listadoCarrito + "\n\t\tTotal productos: $" + valorPagar + "\n\t\tTotal impuestos: $" + impuestos + "\n\t\tTotal a pagar: $" + valorFinal);
     }
 }
 
