@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,30 +18,21 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg shadow-lg rounded p-0">
-            <div class="container-fluid d-flex colorOro shadow-lg">
-                <a class="navbar-brand fw-bolder fst-italic colorOro pe-4 ps-1 rounded protest-revolution-regular align-text-start" href="index.html">
+            <div class="container-fluid d-flex colorOro shadow-lg align-items-center">
+                <a class="navbar-brand fw-bolder fst-italic colorOro pe-4 ps-5 rounded protest-revolution-regular align-text-start" href="index.html">
                 <img src="images/LOGOCamello.png" alt="logoCamello" width="80" height="80" class="p-0 overflow-visible">
                 Sultan's Delights
                 </a>
-                <div class="col text-end pe-4">
-                    <a href="carrito.html" class="btn colorDeFondo shadow-sm"><img src="images/trash.svg" alt="iconoCarrito" width="32"></a>
-                    <a href="carrito.html" class="btn colorDeFondo shadow-sm">
-                        <img src="images/cart.svg" alt="iconoCarrito" width="32">
+                <div class="col text-end gap-4 pe-4">
+                    <a href="carrito.html" class="btn colorDeFondo position-relative">
+                        <img src="images/cart.svg" alt="iconoCarrito" width="32" class="shadow-lg">
+                        <span id="totalCarrito" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span>
                     </a>
-                    <span id="cantidadProductosEnCarrito" class="position-absolute top-35 start-90 translate-middle badge rounded-pill bg-danger"></span>
                 </div>
-                <form class="col-6 d-flex pe-2" role="search">
-                    <input class="form-control me-2 colorDeFondo border-dark" style="font-style: italic"; type="search" placeholder="Buscar..." aria-label="Search">
-                    <button class="btn btn-outline-dark bg-dark-subtle" style="font-style: italic";  type="submit">Buscar</button>
-                </form>
             </div>
         </nav>
     </header>
-    <section class="row">
-        <div id="producto" class="col">
-
-        </div>
-    </section>
+    <section id="producto" class="row"></section>
 
     <script src="./js/funciones.js"></script>
     <script src="./js/producto.js"></script>
