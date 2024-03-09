@@ -31,3 +31,11 @@ body{
 .colorVerdeClaro{
     background-color: #3c835e;
 }
+
+#tachitoDeBasura:hover{
+    background-color: #da3344;
+}
+
+#btnCarrito:hover{
+    background-color: rgb(253, 238, 215);
+}

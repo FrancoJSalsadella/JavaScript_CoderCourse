@@ -17,16 +17,12 @@ const guardarProductosLS = (productos) => {
     localStorage.setItem("productos", JSON.stringify(productos));
 }
 
+const verProductoIndividual = (id) => {
+    localStorage.setItem("producto", JSON.stringify(id));
+}
+
 const obtenerProductosLS = () => {
     return JSON.parse(localStorage.getItem("productos")) || [];
-}
-
-const renderCantidadProductosCarrito = () => {
-    document.getElementById("cantidadProductosEnCarrito").innerHTML = obtenerCantidadProductosCarrito();
-}
-
-const guardarIdProductoIndividualLS = (id) => {
-    localStorage.setItem("producto", JSON.stringify(id));
 }
 
 const obtenerIdProductoLS = () => {
@@ -54,7 +50,11 @@ const productosCarrito = () => {
     return carrito.length;
 }
 
-const agregarProductoCarrito = () => {
+const renderCantidadProductosCarrito = () => {
+    document.getElementById("cantidadProductosEnCarrito").innerHTML = productosCarrito();
+}
+
+const agregarProductoAlCarrito = () => {
     const producto = obtenerProductoLS();
     const carrito = obtenerCarritoLS();
     carrito.push(producto);
