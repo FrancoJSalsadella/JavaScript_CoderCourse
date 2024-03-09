@@ -21,7 +21,7 @@ function renderProducto(){
             position: "right", // `left`, `center` or `right`
             stopOnFocus: true, // Prevents dismissing of toast on hover
             style: {
-                background: "linear-gradient(to right, #0c3c31, #e6b450)",
+                background: "linear-gradient(225deg, #0c3c31, #e6b450)",
             },
 
         }).showToast();

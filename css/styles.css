@@ -1,9 +1,15 @@
 
 body{
     background-color: rgb(253, 238, 215);
+    overflow-x: hidden;
+    width: 100vw;
 }
 
-.colorDeFondo{
+#menuIzquierdo {
+    height: 100vh;
+}
+
+.colorDeFondo {
     background-color: rgb(253, 238, 215);
 }
 

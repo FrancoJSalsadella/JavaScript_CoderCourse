@@ -83,7 +83,7 @@ const borrarProductoCarrito = (id) => {
 
 const finalizarCompraCarrito = () => {
     Swal.fire({
-        title: "<h1 class='protest-revolution-regular fs-2 fst-italic fw-bolder'>Gracias por tu compra!</h1>",
+        title: "<h1 class='protest-revolution-regular fs-2 fst-italic fw-bolder'>¡¡¡Gracias por tu compra!!!</h1>",
         color: "#0c3c31",
         imageUrl: "https://www.starmoontours.com/Upload/turkish-delight-min_n.jpg",
         imageWidth: 400,
